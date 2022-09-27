@@ -1,11 +1,14 @@
 import threading
 import discord
+import json 
 import requests
 from discord.ext import commands
 
 
 bot = commands.Bot(command_prefix="r?",intents = discord.Intents.all())
-token = ""
+sesso = open('config.json')
+data = json.load(sesso)
+token = data['token']
 whitelist = []
 
 server = open("guilds.txt","r").read().splitlines()
